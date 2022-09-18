@@ -1,0 +1,11 @@
+
+#ifndef TA_SANTONGDING_HELLO_H
+#define TA_SANTONGDING_HELLO_H
+
+
+#define TA_HELLO_WORLD_UUID \
+        { 0x94290c06, 0x2720, 0x47dc,\ 
+                { 0xa0, 0x0b, 0x29, 0x8c, 0x7a, 0xe3, 0xe1, 0x97} }
+
+
+#endif 
