@@ -39,11 +39,12 @@ int main(int argc, char *argv[])
 {
 	char *input_v;
 	int len;
-	if (argc != 2)
+	if (argc != 3)
 	{
 		errx(1, "wrong params");
 	}
-	input_v = argv[1];
+	int cmd_id = atoi(argv[1]);
+	input_v = argv[2];
 	len = strlen(input_v);
 	TEEC_Result res;
 	TEEC_Context ctx;
@@ -96,7 +97,7 @@ int main(int argc, char *argv[])
 	 * called.
 	 */
 	printf("Invoking TA with input: %s\n", (char *)(op.params[0].memref.parent->buffer + op.params[1].memref.offset));
-	res = TEEC_InvokeCommand(&sess, 0, &op,
+	res = TEEC_InvokeCommand(&sess, cmd_id, &op,
 							 &err_origin);
 	if (res != TEEC_SUCCESS)
 		errx(1, "TEEC_InvokeCommand failed with code 0x%x origin 0x%x",
